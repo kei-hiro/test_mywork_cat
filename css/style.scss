@@ -1,0 +1,403 @@
+@charset "UTF-8";
+
+/* ------------------------------------------------------------
+    base
+   ------------------------------------------------------------ */
+
+$bg-color: #fff;
+$text-color: #24292e;
+$border-color: #c8c8c8;
+$hover-color: #b3b3b3;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+a {
+    text-decoration: none;
+    color: $text-color;
+}
+
+section {
+    text-align: center;
+}
+
+.blank {
+    height: 190px;
+}
+
+.heading {
+    margin: 80px 0 60px;
+    font-size: 2.4rem;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.link-text {
+    text-decoration: underline;
+    margin: 50px 0;
+}
+
+
+/* 
+トップへ戻るボタン 
+------------------------------------------------ */
+
+#page-top{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    right: 60px;
+    bottom: 40px;
+    background: $text-color;
+    border-radius: 50%;
+  }
+
+  #page-top a{
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+  }
+  #page-top a::before{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f077';
+    font-size: 25px;
+    color: #fff;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -5px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+  }
+
+
+/* ------------------------------------------------------------
+    header
+   ------------------------------------------------------------ */
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40vh;
+    max-width: 900px;
+    margin: 0 auto;
+
+    img {
+        width: 120px;
+    }
+}
+
+.nav-menu {
+
+
+    ul {
+        display: flex;
+        list-style-type: none;
+    }
+
+    li {
+        padding-right: 30px;
+
+        a:hover {
+            color: $hover-color;
+        }
+    }
+}
+
+
+/* ------------------------------------------------------------
+    slide
+   ------------------------------------------------------------ */
+
+   .slider img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+
+
+/* ------------------------------------------------------------
+    Top - Works
+   ------------------------------------------------------------ */
+
+.works-wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .works-item {
+        padding: 10px;
+    }
+
+    a {
+        &:hover {
+            opacity: 0.6;
+            transition-duration: 0.4s;
+        }
+    }
+}
+
+
+
+/* ------------------------------------------------------------
+    Top - News
+   ------------------------------------------------------------ */
+
+.news-list {
+
+    a:hover {
+        color: $hover-color;
+    }
+
+    dt {
+        padding: 18px 70px 10px 15px;
+    }
+
+    dd {
+        padding: 15px 10px 15px 0;
+        text-align: justify;
+    }
+
+    div {
+        display: flex;
+        border-top: 1px solid $border-color;
+    }
+
+    div:last-child {
+        border-bottom: 1px solid $border-color;
+    }
+
+}
+
+/* ------------------------------------------------------------
+    About
+   ------------------------------------------------------------ */
+
+.about {
+    width: 90%;
+    margin: 0 auto;
+
+    p {
+        text-align: justify;
+        margin-bottom: 30px;
+    }
+}
+
+
+/* ------------------------------------------------------------
+    footer
+   ------------------------------------------------------------ */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    color: $bg-color;
+    background-color: $text-color;
+    font-size: 1rem;
+}
+
+
+
+
+/* ------------------------------------------------------------
+    sp
+   ------------------------------------------------------------ */
+
+
+@media screen and (max-width: 1024px) {
+
+    #page-top {
+        right: 15px;
+    }
+
+    .header {
+        justify-content: center;
+
+        ul {
+            display: block;
+        }
+
+        li {
+            padding-bottom: 40px;
+        }
+    }
+
+    /* ハンバーガーメニュー　*/
+
+    #g-nav {
+        /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+        position: fixed;
+        z-index: 999;
+        /*ナビのスタート位置と形状*/
+        top: 0;
+        right: -120%;
+        width: 100%;
+        height: 100vh;
+        /*ナビの高さ*/
+        background: rgba(255,255,255,0.9);
+        /*動き*/
+        transition: all 0.6s;
+    }
+
+    /*アクティブクラスがついたら位置を0に*/
+    #g-nav.panelactive {
+        right: 0;
+    }
+
+    /*ナビゲーションの縦スクロール*/
+    #g-nav.panelactive #g-nav-list {
+        /*ナビの数が増えた場合縦スクロール*/
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100vh;
+        /*表示する高さ*/
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /*ナビゲーション*/
+    #g-nav ul {
+        /*ナビゲーション天地中央揃え*/
+        position: absolute;
+        z-index: 999;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /*リストのレイアウト設定*/
+
+    #g-nav li {
+        list-style: none;
+        text-align: center;
+    }
+
+    #g-nav li a {
+        color: $text-color;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+        letter-spacing: 0.1em;
+
+        &:hover {
+            color: $hover-color;
+        }
+    }
+
+    /*========= ボタンのためのCSS ===============*/
+    .openbtn1 {
+        position: fixed;
+        z-index: 9999; /*ボタンを最前面に*/
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        width: 60px;
+        height: 80px;
+    }
+
+    /*×に変化*/
+    .openbtn1 span {
+        display: inline-block;
+        transition: all .4s;
+        position: absolute;
+        left: 14px;
+        height: 3px;
+        background-color: #2b3137;
+        width: 45%;
+    }
+
+    .openbtn1 span:nth-of-type(1) {
+        top: 15px;
+    }
+
+    .openbtn1 span:nth-of-type(2) {
+        top: 23px;
+    }
+
+    .openbtn1 span:nth-of-type(3) {
+        top: 31px;
+    }
+
+    .openbtn1.active span:nth-of-type(1) {
+        top: 18px;
+        left: 18px;
+        transform: translateY(6px) rotate(-45deg);
+        width: 30%;
+    }
+
+    .openbtn1.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+
+    .openbtn1.active span:nth-of-type(3) {
+        top: 30px;
+        left: 18px;
+        transform: translateY(-6px) rotate(45deg);
+        width: 30%;
+    }
+}
+
+
+@media screen and (max-width: 599px) {
+
+    #page-top {
+        right: 5px;
+    }
+
+    .header {
+        height: 12vh;
+    }
+
+    .slide {
+        height: 420px;
+    }
+
+    .news-list {
+
+        dt {
+            text-align: left;
+            padding: 10px 0 10px 10px;
+        }
+
+        dd {
+            padding: 0 10px 10px 10px;
+        }
+
+        div {
+            display: block;
+        }
+    }
+
+    .about {
+        width: 95%;
+    }
+}
