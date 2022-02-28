@@ -59,7 +59,7 @@ section {
 トップへ戻るボタン 
 ------------------------------------------------ */
 
-#page-top{
+#page-top {
     width: 50px;
     height: 50px;
     position: fixed;
@@ -67,16 +67,17 @@ section {
     bottom: 40px;
     background: $text-color;
     border-radius: 50%;
-  }
+}
 
-  #page-top a{
+#page-top a {
     position: relative;
     display: block;
     width: 50px;
     height: 50px;
     text-decoration: none;
-  }
-  #page-top a::before{
+}
+
+#page-top a::before {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     content: '\f077';
@@ -91,7 +92,7 @@ section {
     left: 0;
     margin: auto;
     text-align: center;
-  }
+}
 
 
 /* ------------------------------------------------------------
@@ -104,6 +105,7 @@ section {
     justify-content: space-between;
     align-items: center;
     height: 40vh;
+    max-height: 280px;
     max-width: 900px;
     margin: 0 auto;
 
@@ -134,11 +136,11 @@ section {
     slide
    ------------------------------------------------------------ */
 
-   .slider img {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-}
+.slider  img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+    }
 
 
 
@@ -239,6 +241,7 @@ footer {
     }
 
     .header {
+        height: 20vh;
         justify-content: center;
 
         ul {
@@ -262,7 +265,7 @@ footer {
         width: 100%;
         height: 100vh;
         /*ナビの高さ*/
-        background: rgba(255,255,255,0.9);
+        background: rgba(255, 255, 255, 0.9);
         /*動き*/
         transition: all 0.6s;
     }
@@ -316,7 +319,8 @@ footer {
     /*========= ボタンのためのCSS ===============*/
     .openbtn1 {
         position: fixed;
-        z-index: 9999; /*ボタンを最前面に*/
+        z-index: 9999;
+        /*ボタンを最前面に*/
         top: 10px;
         right: 10px;
         cursor: pointer;
